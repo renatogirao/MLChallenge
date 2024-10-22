@@ -30,6 +30,7 @@
 		57CB99722CC8407700F27D25 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99712CC8407700F27D25 /* SettingsViewController.swift */; };
 		57CB99752CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99742CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift */; };
 		57CB99772CC8540D00F27D25 /* ProductCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99762CC8540D00F27D25 /* ProductCarouselViewModel.swift */; };
+		57CB99792CC8599C00F27D25 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99782CC8599C00F27D25 /* CarouselView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		57CB99712CC8407700F27D25 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57CB99742CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		57CB99762CC8540D00F27D25 /* ProductCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCarouselViewModel.swift; sourceTree = "<group>"; };
+		57CB99782CC8599C00F27D25 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				57CB99672CC83CFE00F27D25 /* HomeView.swift */,
 				57CB99692CC83D0F00F27D25 /* ListProductsView.swift */,
 				57CB99742CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift */,
+				57CB99782CC8599C00F27D25 /* CarouselView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				57C5BD102CC8320B004929BC /* ProductView.swift in Sources */,
 				57C5BD192CC83626004929BC /* ProductViewModel.swift in Sources */,
 				57C5BCD52CC82A11004929BC /* SceneDelegate.swift in Sources */,
+				57CB99792CC8599C00F27D25 /* CarouselView.swift in Sources */,
 				57CB99752CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift in Sources */,
 				57CB996E2CC83E7500F27D25 /* TabBarController.swift in Sources */,
 				57C5BD132CC83239004929BC /* ProductViewController.swift in Sources */,
