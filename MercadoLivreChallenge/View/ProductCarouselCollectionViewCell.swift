@@ -26,7 +26,7 @@ class CarouselViewCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label..translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.numberOfLines = 2
         label.textAlignment = .center
@@ -44,7 +44,7 @@ class CarouselViewCell: UICollectionViewCell {
     
     private let freeShippingLabel: UILabel = {
         let label = UILabel()
-        label..translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .systemBlue
         label.text = "Frete Grátis"
