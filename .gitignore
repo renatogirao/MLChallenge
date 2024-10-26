@@ -1,0 +1,44 @@
+# Xcode
+DerivedData/
+.idea/
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata
+!*.xcodeproj/xcshareddata/xcdebugger/
+!*.xcodeproj/xcshareddata/xcschemes/
+*.xcworkspace
+!*.xcworkspace/contents.xcworkspacedata
+!*.xcworkspace/xcshareddata
+!*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+
+# CocoaPods
+Pods/
+Podfile.lock
+*.xcworkspace
+
+# Xcode Patch
+*.xcodeproj/project.xcworkspace/xcuserdata
+*.xcodeproj/xcuserdata
+*.xcodeproj/*.xcscmblueprint
+
+# SwiftLint
+.swiftlint.yml
+.swiftformat
+
+# Others
+*.swp
+*~
+.DS_Store
+*.DS_Store
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+*.iml
+*.dSYM
+*.plist
+*.bak
+.idea/
