@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductViewModel {
+class ProducDetailsViewModel {
     
     private let product: Product
     
@@ -22,6 +22,14 @@ class ProductViewModel {
     var productPrice: String {
         let formattedPrice = String(format: "%.2f", product.price)
         return "\(product.currencyId) \(formattedPrice)"
+    }
+    
+    var productRating: String {
+        return "\(product.installments.quantity) ⭐ (\(product.availableQuantity) reviews)"
+    }
+    
+    var productDescription: String {
+        return product.attributes.map { "\($0.name): \($0.valueName ?? "")" }.joined(separator: "\n")
     }
     
     var productCondition: String {

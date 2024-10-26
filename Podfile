@@ -2,10 +2,10 @@
 # platform :ios, '9.0'
 
 target 'MercadoLivreChallenge' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for MercadoLivreChallenge
+  pod 'Kingfisher', '7.6.1'
 
   target 'MercadoLivreChallengeTests' do
     inherit! :search_paths
@@ -13,7 +13,7 @@ target 'MercadoLivreChallenge' do
   end
 
   target 'MercadoLivreChallengeUITests' do
+    inherit! :search_paths
     # Pods for testing
   end
-
 end
