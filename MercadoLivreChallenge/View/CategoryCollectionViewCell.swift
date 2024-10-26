@@ -18,6 +18,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 18
         imageView.layer.masksToBounds = true
+        imageView.layer.borderColor = UIColor(hex: "28282E")?.cgColor
+        imageView.layer.borderWidth = 2.0
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -46,7 +48,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     private func configureCellAppearance() {
         contentView.layer.cornerRadius = 24
         contentView.layer.masksToBounds = true
-        contentView.backgroundColor = .darkGray
+        contentView.backgroundColor = UIColor(hex: "212227")
     }
     
     required init?(coder: NSCoder) {

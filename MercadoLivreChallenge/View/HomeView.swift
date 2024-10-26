@@ -24,9 +24,13 @@ class HomeView: UIView {
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Pesquisar produtos"
-        searchBar.backgroundColor = .darkGray
+        searchBar.backgroundImage = UIImage()
+        searchBar.barTintColor = .clear
+        searchBar.isTranslucent = true
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.tintColor = .black
+        searchBar.tintColor = .white
+        searchBar.layer.borderColor = UIColor.clear.cgColor
+        searchBar.layer.backgroundColor = UIColor(hex: "141821")?.cgColor
         searchBar.layer.cornerRadius = 12
         return searchBar
     }()
@@ -61,7 +65,7 @@ class HomeView: UIView {
     }
     
     private func setupViews() {
-        backgroundColor = .black
+        backgroundColor = UIColor(hex: "0D0F14")
         addSubview(searchBar)
         addSubview(collectionView)
         addSubview(titleHomeLabel)
@@ -71,10 +75,10 @@ class HomeView: UIView {
         NSLayoutConstraint.activate([
             
             titleHomeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            titleHomeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            titleHomeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 18),
             titleHomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             
-            searchBar.topAnchor.constraint(equalTo: titleHomeLabel.bottomAnchor, constant: 12),
+            searchBar.topAnchor.constraint(equalTo: titleHomeLabel.bottomAnchor, constant: 18),
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             

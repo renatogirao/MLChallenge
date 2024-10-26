@@ -11,6 +11,8 @@
 		573F589D2CCC74C200DF01E3 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F589C2CCC74C200DF01E3 /* ShoppingCartViewController.swift */; };
 		573F589F2CCC819600DF01E3 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F589E2CCC819600DF01E3 /* CategoryCollectionViewCell.swift */; };
 		573F58A32CCC9B7300DF01E3 /* ProductCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58A22CCC9B7300DF01E3 /* ProductCarouselViewModel.swift */; };
+		573F58A52CCDADFD00DF01E3 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58A42CCDADFD00DF01E3 /* UIColor+Hex.swift */; };
+		573F58A72CCDB4EA00DF01E3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58A62CCDB4EA00DF01E3 /* TabBarController.swift */; };
 		5764DAE02CCC58BA00399D9D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */; };
 		57C5BCD32CC82A11004929BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCD22CC82A11004929BC /* AppDelegate.swift */; };
 		57C5BCD52CC82A11004929BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCD42CC82A11004929BC /* SceneDelegate.swift */; };
@@ -30,7 +32,6 @@
 		57CB99682CC83CFE00F27D25 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99672CC83CFE00F27D25 /* HomeView.swift */; };
 		57CB996A2CC83D0F00F27D25 /* ListProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99692CC83D0F00F27D25 /* ListProductsView.swift */; };
 		57CB996C2CC83D3600F27D25 /* ListProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB996B2CC83D3600F27D25 /* ListProductsViewController.swift */; };
-		57CB996E2CC83E7500F27D25 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB996D2CC83E7500F27D25 /* TabBarController.swift */; };
 		57CB99702CC8404200F27D25 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB996F2CC8404200F27D25 /* FavoritesViewController.swift */; };
 		57CB99722CC8407700F27D25 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99712CC8407700F27D25 /* SettingsViewController.swift */; };
 		EC3E064F3D3DD02FB67B7518 /* Pods_MercadoLivreChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F41F4876A78791864E96AD5 /* Pods_MercadoLivreChallengeTests.framework */; };
@@ -61,6 +62,8 @@
 		573F589C2CCC74C200DF01E3 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 		573F589E2CCC819600DF01E3 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		573F58A22CCC9B7300DF01E3 /* ProductCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCarouselViewModel.swift; sourceTree = "<group>"; };
+		573F58A42CCDADFD00DF01E3 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		573F58A62CCDB4EA00DF01E3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		57C5BCCF2CC82A11004929BC /* MercadoLivreChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoLivreChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C5BCD22CC82A11004929BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +87,6 @@
 		57CB99672CC83CFE00F27D25 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		57CB99692CC83D0F00F27D25 /* ListProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductsView.swift; sourceTree = "<group>"; };
 		57CB996B2CC83D3600F27D25 /* ListProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductsViewController.swift; sourceTree = "<group>"; };
-		57CB996D2CC83E7500F27D25 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		57CB996F2CC8404200F27D25 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		57CB99712CC8407700F27D25 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6B7F1CEBE62A646E599ED3C8 /* Pods-MercadoLivreChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoLivreChallenge.release.xcconfig"; path = "Target Support Files/Pods-MercadoLivreChallenge/Pods-MercadoLivreChallenge.release.xcconfig"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		57C5BD092CC82D1A004929BC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				573F58A42CCDADFD00DF01E3 /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -257,10 +260,10 @@
 				57C5BD122CC83239004929BC /* ProductViewController.swift */,
 				57C5BD142CC83469004929BC /* HomeViewController.swift */,
 				57CB996B2CC83D3600F27D25 /* ListProductsViewController.swift */,
-				57CB996D2CC83E7500F27D25 /* TabBarController.swift */,
 				57CB996F2CC8404200F27D25 /* FavoritesViewController.swift */,
 				57CB99712CC8407700F27D25 /* SettingsViewController.swift */,
 				573F589C2CCC74C200DF01E3 /* ShoppingCartViewController.swift */,
+				573F58A62CCDB4EA00DF01E3 /* TabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573F58A52CCDADFD00DF01E3 /* UIColor+Hex.swift in Sources */,
 				57C5BCD32CC82A11004929BC /* AppDelegate.swift in Sources */,
 				57CB996C2CC83D3600F27D25 /* ListProductsViewController.swift in Sources */,
 				57CB99662CC83B8000F27D25 /* Category.swift in Sources */,
@@ -510,7 +514,7 @@
 				57C5BD192CC83626004929BC /* ProductDetailsViewModel.swift in Sources */,
 				57C5BCD52CC82A11004929BC /* SceneDelegate.swift in Sources */,
 				5764DAE02CCC58BA00399D9D /* HomeViewModel.swift in Sources */,
-				57CB996E2CC83E7500F27D25 /* TabBarController.swift in Sources */,
+				573F58A72CCDB4EA00DF01E3 /* TabBarController.swift in Sources */,
 				57C5BD132CC83239004929BC /* ProductViewController.swift in Sources */,
 				57CB99702CC8404200F27D25 /* FavoritesViewController.swift in Sources */,
 				573F589D2CCC74C200DF01E3 /* ShoppingCartViewController.swift in Sources */,
