@@ -8,15 +8,18 @@
 import Foundation
 
 enum APIEndpoint {
-    case home
+    case categories
     case search(searchText: String)
-    
+    case imageCategories(categoryId: String)
+
     var path: String {
         switch self {
-        case .home:
-            return "/sites/MLA/search?category=MLA1055"
+        case .categories:
+            return "/sites/MLA/categories"
         case .search(let searchText):
             return "/sites/MLA/search?q=\(searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+        case .imageCategories(let categoryId):
+            return "/categories/\(categoryId)"
         }
     }
 }
@@ -41,8 +44,23 @@ class NetworkingManager {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print("Request error: \(error.localizedDescription)")
+                completion(.failure(.requestFailed))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.requestFailed))
+                return
+            }
+            
+            do {
+                let result = try JSONDecoder().decode(responseType, from: data)
+                completion(.success(result))
+            } catch {
+                print("Decoding error: \(error.localizedDescription)")
+                completion(.failure(.decodingFailed))
             }
         }
+        task.resume()
     }
 }
-
