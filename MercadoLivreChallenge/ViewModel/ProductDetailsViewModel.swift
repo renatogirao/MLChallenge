@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProducDetailsViewModel {
+class ProductDetailsViewModel {
     
     private let product: Product
     
@@ -36,8 +36,8 @@ class ProducDetailsViewModel {
         return product.condition == "new" ? "Novo" : "Usado"
     }
     
-    var productImageUrl: String? {
-        return product.thumbnail
+    var productThumbnailURL: URL? {
+        return URL(string: product.thumbnail)
     }
     
     var acceptMercadoPago: Bool {

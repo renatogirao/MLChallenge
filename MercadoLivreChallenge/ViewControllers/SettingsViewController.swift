@@ -13,10 +13,7 @@ class SettingsViewController: UITableViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
-
-            title = "Favoritos"
             view.backgroundColor = .white
-
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "favoriteCell")
         }
 
