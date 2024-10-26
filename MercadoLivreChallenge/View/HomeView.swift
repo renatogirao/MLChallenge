@@ -60,7 +60,6 @@ class HomeView: UIView {
     private func setupViews() {
         backgroundColor = .lightGray
         addSubview(searchBar)
-        addSubview(categoryLabel)
         addSubview(collectionView)
         addSubview(titleHomeLabel)
     }
@@ -76,7 +75,6 @@ class HomeView: UIView {
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            collectionView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 8),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
