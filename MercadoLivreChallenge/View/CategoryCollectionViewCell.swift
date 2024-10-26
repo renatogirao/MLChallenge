@@ -12,37 +12,41 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    private let viewCollectionCell: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 8
-        return view
-    }()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        label.textColor = .green
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 18
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .white
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .lightGray
-        contentView.addSubview(imageView)
+        
+        contentView.backgroundColor = .white
+        titleLabel.backgroundColor = .clear
+        
         contentView.addSubview(titleLabel)
-        contentView.addSubview(viewCollectionCell)
+        contentView.addSubview(imageView)
         setupConstraints()
+        configureCellAppearance()
+    }
+    
+    private func configureCellAppearance() {
+        contentView.layer.cornerRadius = 24
+        contentView.layer.masksToBounds = true
+        contentView.backgroundColor = .darkGray
     }
     
     required init?(coder: NSCoder) {
@@ -52,23 +56,14 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            viewCollectionCell.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-            viewCollectionCell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
-            viewCollectionCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
-            viewCollectionCell.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 4),
-            viewCollectionCell.heightAnchor.constraint(equalToConstant: 320),
-            viewCollectionCell.widthAnchor.constraint(equalToConstant: 300),
-            self.heightAnchor.constraint(equalToConstant: 280),
-            self.widthAnchor.constraint(equalToConstant: 180),
-            
-            imageView.topAnchor.constraint(equalTo: viewCollectionCell.topAnchor, constant: 2),
-            imageView.leadingAnchor.constraint(equalTo: viewCollectionCell.leadingAnchor,constant: 2),
-            imageView.trailingAnchor.constraint(equalTo: viewCollectionCell.trailingAnchor, constant: 2),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 8),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
     

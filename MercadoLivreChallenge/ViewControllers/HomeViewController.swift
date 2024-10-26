@@ -73,7 +73,6 @@ extension HomeViewController: UICollectionViewDataSource {
                 print("Error fetching category detail: \(error)")
             }
         }
-
         return cell
     }
 }
@@ -81,6 +80,6 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 200)
+        return CGSize(width: 160, height: 200)
     }
 }
