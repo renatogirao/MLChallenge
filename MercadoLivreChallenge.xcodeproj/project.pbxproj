@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35303F96A2B40D6A0F88A5D1 /* Pods_MercadoLivreChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F7D1D524233687B4C4EE5 /* Pods_MercadoLivreChallengeUITests.framework */; };
+		573F589D2CCC74C200DF01E3 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F589C2CCC74C200DF01E3 /* ShoppingCartViewController.swift */; };
+		573F589F2CCC819600DF01E3 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F589E2CCC819600DF01E3 /* CategoryCollectionViewCell.swift */; };
+		573F58A32CCC9B7300DF01E3 /* ProductCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58A22CCC9B7300DF01E3 /* ProductCarouselViewModel.swift */; };
+		5764DAE02CCC58BA00399D9D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */; };
 		57C5BCD32CC82A11004929BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCD22CC82A11004929BC /* AppDelegate.swift */; };
 		57C5BCD52CC82A11004929BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCD42CC82A11004929BC /* SceneDelegate.swift */; };
 		57C5BCDD2CC82A11004929BC /* MercadoLivreChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCDB2CC82A11004929BC /* MercadoLivreChallenge.xcdatamodeld */; };
@@ -17,10 +22,10 @@
 		57C5BCF92CC82A14004929BC /* MercadoLivreChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCF82CC82A14004929BC /* MercadoLivreChallengeUITestsLaunchTests.swift */; };
 		57C5BD0C2CC82D48004929BC /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD0B2CC82D48004929BC /* NetworkingManager.swift */; };
 		57C5BD0E2CC82E0D004929BC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD0D2CC82E0D004929BC /* Product.swift */; };
-		57C5BD102CC8320B004929BC /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD0F2CC8320B004929BC /* ProductView.swift */; };
+		57C5BD102CC8320B004929BC /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD0F2CC8320B004929BC /* ProductDetailsView.swift */; };
 		57C5BD132CC83239004929BC /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD122CC83239004929BC /* ProductViewController.swift */; };
 		57C5BD152CC83469004929BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD142CC83469004929BC /* HomeViewController.swift */; };
-		57C5BD192CC83626004929BC /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD182CC83626004929BC /* ProductViewModel.swift */; };
+		57C5BD192CC83626004929BC /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD182CC83626004929BC /* ProductDetailsViewModel.swift */; };
 		57CB99662CC83B8000F27D25 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99652CC83B8000F27D25 /* Category.swift */; };
 		57CB99682CC83CFE00F27D25 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99672CC83CFE00F27D25 /* HomeView.swift */; };
 		57CB996A2CC83D0F00F27D25 /* ListProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99692CC83D0F00F27D25 /* ListProductsView.swift */; };
@@ -28,11 +33,6 @@
 		57CB996E2CC83E7500F27D25 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB996D2CC83E7500F27D25 /* TabBarController.swift */; };
 		57CB99702CC8404200F27D25 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB996F2CC8404200F27D25 /* FavoritesViewController.swift */; };
 		57CB99722CC8407700F27D25 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99712CC8407700F27D25 /* SettingsViewController.swift */; };
-		57CB99752CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99742CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift */; };
-		57CB99772CC8540D00F27D25 /* ProductCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99762CC8540D00F27D25 /* ProductCarouselViewModel.swift */; };
-		57CB99792CC8599C00F27D25 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99782CC8599C00F27D25 /* CarouselView.swift */; };
-		57CB997C2CC85C1200F27D25 /* CarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB997B2CC85C1200F27D25 /* CarouselViewModel.swift */; };
-		D63E1B646A141FF1FE241D94 /* Pods_MercadoLivreChallenge_MercadoLivreChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B99AD4EBAB53790F6C75272 /* Pods_MercadoLivreChallenge_MercadoLivreChallengeUITests.framework */; };
 		EC3E064F3D3DD02FB67B7518 /* Pods_MercadoLivreChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F41F4876A78791864E96AD5 /* Pods_MercadoLivreChallengeTests.framework */; };
 		F3CAEC0D9BF36D81E42BDE52 /* Pods_MercadoLivreChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE9DE952221FA40D74345ADA /* Pods_MercadoLivreChallenge.framework */; };
 /* End PBXBuildFile section */
@@ -56,8 +56,12 @@
 
 /* Begin PBXFileReference section */
 		1C25B3C510C4AA18D6C09859 /* Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests/Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B99AD4EBAB53790F6C75272 /* Pods_MercadoLivreChallenge_MercadoLivreChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MercadoLivreChallenge_MercadoLivreChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		339020E412865E5E4BA382AF /* Pods-MercadoLivreChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoLivreChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-MercadoLivreChallengeUITests/Pods-MercadoLivreChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		55957C42FE6C7560F3CA0631 /* Pods-MercadoLivreChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoLivreChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-MercadoLivreChallengeTests/Pods-MercadoLivreChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		573F589C2CCC74C200DF01E3 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
+		573F589E2CCC819600DF01E3 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		573F58A22CCC9B7300DF01E3 /* ProductCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCarouselViewModel.swift; sourceTree = "<group>"; };
+		5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		57C5BCCF2CC82A11004929BC /* MercadoLivreChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoLivreChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C5BCD22CC82A11004929BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57C5BCD42CC82A11004929BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,10 +76,10 @@
 		57C5BCF82CC82A14004929BC /* MercadoLivreChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLivreChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		57C5BD0B2CC82D48004929BC /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		57C5BD0D2CC82E0D004929BC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		57C5BD0F2CC8320B004929BC /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		57C5BD0F2CC8320B004929BC /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		57C5BD122CC83239004929BC /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		57C5BD142CC83469004929BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		57C5BD182CC83626004929BC /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		57C5BD182CC83626004929BC /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		57CB99652CC83B8000F27D25 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		57CB99672CC83CFE00F27D25 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		57CB99692CC83D0F00F27D25 /* ListProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductsView.swift; sourceTree = "<group>"; };
@@ -83,13 +87,11 @@
 		57CB996D2CC83E7500F27D25 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		57CB996F2CC8404200F27D25 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		57CB99712CC8407700F27D25 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		57CB99742CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCarouselCollectionViewCell.swift; sourceTree = "<group>"; };
-		57CB99762CC8540D00F27D25 /* ProductCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCarouselViewModel.swift; sourceTree = "<group>"; };
-		57CB99782CC8599C00F27D25 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
-		57CB997B2CC85C1200F27D25 /* CarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewModel.swift; sourceTree = "<group>"; };
 		6B7F1CEBE62A646E599ED3C8 /* Pods-MercadoLivreChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoLivreChallenge.release.xcconfig"; path = "Target Support Files/Pods-MercadoLivreChallenge/Pods-MercadoLivreChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		6F41F4876A78791864E96AD5 /* Pods_MercadoLivreChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MercadoLivreChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A4F7D1D524233687B4C4EE5 /* Pods_MercadoLivreChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MercadoLivreChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		856333A055AC1AF2A21F078A /* Pods-MercadoLivreChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoLivreChallenge.debug.xcconfig"; path = "Target Support Files/Pods-MercadoLivreChallenge/Pods-MercadoLivreChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		86B87E3B128E3A34E9B0811E /* Pods-MercadoLivreChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoLivreChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-MercadoLivreChallengeUITests/Pods-MercadoLivreChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4E6D983D07CC72E6EDB55E5 /* Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests/Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FAA97BF36D631444C03A921C /* Pods-MercadoLivreChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoLivreChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-MercadoLivreChallengeTests/Pods-MercadoLivreChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE9DE952221FA40D74345ADA /* Pods_MercadoLivreChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MercadoLivreChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D63E1B646A141FF1FE241D94 /* Pods_MercadoLivreChallenge_MercadoLivreChallengeUITests.framework in Frameworks */,
+				35303F96A2B40D6A0F88A5D1 /* Pods_MercadoLivreChallengeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +134,9 @@
 				C4E6D983D07CC72E6EDB55E5 /* Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests.release.xcconfig */,
 				FAA97BF36D631444C03A921C /* Pods-MercadoLivreChallengeTests.debug.xcconfig */,
 				55957C42FE6C7560F3CA0631 /* Pods-MercadoLivreChallengeTests.release.xcconfig */,
+				86B87E3B128E3A34E9B0811E /* Pods-MercadoLivreChallengeUITests.debug.xcconfig */,
+				339020E412865E5E4BA382AF /* Pods-MercadoLivreChallengeUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,11 +211,10 @@
 		57C5BD062CC82A68004929BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				57C5BD0F2CC8320B004929BC /* ProductView.swift */,
+				57C5BD0F2CC8320B004929BC /* ProductDetailsView.swift */,
 				57CB99672CC83CFE00F27D25 /* HomeView.swift */,
 				57CB99692CC83D0F00F27D25 /* ListProductsView.swift */,
-				57CB99742CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift */,
-				57CB99782CC8599C00F27D25 /* CarouselView.swift */,
+				573F589E2CCC819600DF01E3 /* CategoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,9 +222,9 @@
 		57C5BD072CC82A6E004929BC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				57C5BD182CC83626004929BC /* ProductViewModel.swift */,
-				57CB99762CC8540D00F27D25 /* ProductCarouselViewModel.swift */,
-				57CB997B2CC85C1200F27D25 /* CarouselViewModel.swift */,
+				57C5BD182CC83626004929BC /* ProductDetailsViewModel.swift */,
+				5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */,
+				573F58A22CCC9B7300DF01E3 /* ProductCarouselViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -258,6 +260,7 @@
 				57CB996D2CC83E7500F27D25 /* TabBarController.swift */,
 				57CB996F2CC8404200F27D25 /* FavoritesViewController.swift */,
 				57CB99712CC8407700F27D25 /* SettingsViewController.swift */,
+				573F589C2CCC74C200DF01E3 /* ShoppingCartViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -266,8 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				FE9DE952221FA40D74345ADA /* Pods_MercadoLivreChallenge.framework */,
-				4B99AD4EBAB53790F6C75272 /* Pods_MercadoLivreChallenge_MercadoLivreChallengeUITests.framework */,
 				6F41F4876A78791864E96AD5 /* Pods_MercadoLivreChallengeTests.framework */,
+				7A4F7D1D524233687B4C4EE5 /* Pods_MercadoLivreChallengeUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				57C5BCCB2CC82A11004929BC /* Sources */,
 				57C5BCCC2CC82A11004929BC /* Frameworks */,
 				57C5BCCD2CC82A11004929BC /* Resources */,
+				9352B55B28FE7B4DC332F922 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -416,7 +420,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MercadoLivreChallengeUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -443,6 +447,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9352B55B28FE7B4DC332F922 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MercadoLivreChallenge/Pods-MercadoLivreChallenge-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MercadoLivreChallenge/Pods-MercadoLivreChallenge-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MercadoLivreChallenge/Pods-MercadoLivreChallenge-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FAF67EC06E7CD4F02CD793AB /* [CP] Check Pods Manifest.lock */ = {
@@ -480,19 +501,19 @@
 				57C5BCDD2CC82A11004929BC /* MercadoLivreChallenge.xcdatamodeld in Sources */,
 				57C5BD0C2CC82D48004929BC /* NetworkingManager.swift in Sources */,
 				57CB996A2CC83D0F00F27D25 /* ListProductsView.swift in Sources */,
-				57CB99772CC8540D00F27D25 /* ProductCarouselViewModel.swift in Sources */,
 				57C5BD152CC83469004929BC /* HomeViewController.swift in Sources */,
-				57CB997C2CC85C1200F27D25 /* CarouselViewModel.swift in Sources */,
+				573F589F2CCC819600DF01E3 /* CategoryCollectionViewCell.swift in Sources */,
+				573F58A32CCC9B7300DF01E3 /* ProductCarouselViewModel.swift in Sources */,
 				57CB99722CC8407700F27D25 /* SettingsViewController.swift in Sources */,
 				57CB99682CC83CFE00F27D25 /* HomeView.swift in Sources */,
-				57C5BD102CC8320B004929BC /* ProductView.swift in Sources */,
-				57C5BD192CC83626004929BC /* ProductViewModel.swift in Sources */,
+				57C5BD102CC8320B004929BC /* ProductDetailsView.swift in Sources */,
+				57C5BD192CC83626004929BC /* ProductDetailsViewModel.swift in Sources */,
 				57C5BCD52CC82A11004929BC /* SceneDelegate.swift in Sources */,
-				57CB99792CC8599C00F27D25 /* CarouselView.swift in Sources */,
-				57CB99752CC851E900F27D25 /* ProductCarouselCollectionViewCell.swift in Sources */,
+				5764DAE02CCC58BA00399D9D /* HomeViewModel.swift in Sources */,
 				57CB996E2CC83E7500F27D25 /* TabBarController.swift in Sources */,
 				57C5BD132CC83239004929BC /* ProductViewController.swift in Sources */,
 				57CB99702CC8404200F27D25 /* FavoritesViewController.swift in Sources */,
+				573F589D2CCC74C200DF01E3 /* ShoppingCartViewController.swift in Sources */,
 				57C5BD0E2CC82E0D004929BC /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,7 +776,7 @@
 		};
 		57C5BD032CC82A14004929BC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C25B3C510C4AA18D6C09859 /* Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests.debug.xcconfig */;
+			baseConfigurationReference = 86B87E3B128E3A34E9B0811E /* Pods-MercadoLivreChallengeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -774,7 +795,7 @@
 		};
 		57C5BD042CC82A14004929BC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4E6D983D07CC72E6EDB55E5 /* Pods-MercadoLivreChallenge-MercadoLivreChallengeUITests.release.xcconfig */;
+			baseConfigurationReference = 339020E412865E5E4BA382AF /* Pods-MercadoLivreChallengeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
