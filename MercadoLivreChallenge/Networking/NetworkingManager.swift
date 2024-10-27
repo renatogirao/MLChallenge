@@ -17,7 +17,9 @@ enum APIEndpoint {
         case .categories:
             return "/sites/MLA/categories"
         case .search(let searchText):
-            return "/sites/MLA/search?q=\(searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+            let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            print("\n\n\n ENCODED TEXT AWUI\(encodedText)\n\n\n\n")
+            return "/sites/MLA/search?q=\(encodedText)"
         case .imageCategories(let categoryId):
             return "/categories/\(categoryId)"
         }
@@ -41,6 +43,8 @@ class NetworkingManager {
             return
         }
         
+        print("\n\nURL de busca pesquisada: \(url)\n\n")
+        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print("Request error: \(error.localizedDescription)")
@@ -52,6 +56,8 @@ class NetworkingManager {
                 completion(.failure(.requestFailed))
                 return
             }
+            
+            print("\n\nRESPOSTA DE DADOS: \(String(data: data, encoding: .utf8) ?? "sem dados\n")")
             
             do {
                 let result = try JSONDecoder().decode(responseType, from: data)
