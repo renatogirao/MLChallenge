@@ -41,7 +41,7 @@ class ProductDetailsViewModel {
     }
     
     var acceptMercadoPago: Bool {
-        return product.acceptMercadoPago
+        return product.acceptsMercadoPago
     }
     
     var productPermalink: String {
