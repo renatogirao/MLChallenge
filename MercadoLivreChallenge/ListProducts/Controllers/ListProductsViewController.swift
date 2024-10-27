@@ -55,7 +55,7 @@ extension ListProductsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text {
             viewModel.searchProducts(with: searchText)
-            searchBar.resignFirstResponder() // Esconder o teclado
+            searchBar.resignFirstResponder() 
         }
     }
 }

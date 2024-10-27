@@ -39,6 +39,5 @@ class SettingsViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
 
             let selectedItem = favoriteItems[indexPath.row]
-            print("Item selecionado: \(selectedItem)")
         }
     }

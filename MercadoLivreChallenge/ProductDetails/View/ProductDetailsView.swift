@@ -116,7 +116,7 @@ class ProductDetailsView: UIView {
     }
     
     private func configureView() {
-        productNameLabel.text = viewModel.productTitle // Substituído para `productTitle`
+        productNameLabel.text = viewModel.productTitle
         ratingLabel.text = viewModel.productRating
         descriptionLabel.text = viewModel.productDescription
         priceLabel.text = viewModel.productPrice
