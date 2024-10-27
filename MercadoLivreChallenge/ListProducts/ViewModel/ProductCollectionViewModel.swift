@@ -31,7 +31,7 @@ class ProductCollectionViewModel {
     }
     
     var rating: String {
-        return "Rating: \(product.installments.rate)"
+        return "Rating: \(product.installments?.rate ?? 0.0)"
     }
 }
 

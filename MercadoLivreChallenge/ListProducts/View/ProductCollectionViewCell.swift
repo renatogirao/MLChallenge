@@ -13,24 +13,26 @@ class ProductCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 8
+        imageView.layer.cornerRadius = 18
         imageView.layer.masksToBounds = true
+        imageView.layer.borderColor = UIColor(hex: "28282E")?.cgColor
+        imageView.layer.borderWidth = 2.0
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textColor = .white
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         label.textColor = .systemYellow
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,8 +40,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     private let freeShippingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        label.textColor = .green
+        label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        label.textColor = .systemYellow
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

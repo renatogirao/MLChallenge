@@ -42,6 +42,8 @@ class NetworkingManager {
             return
         }
         
+        
+        print("URL de busca pesquisada: \(url)")
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(.requestFailed))

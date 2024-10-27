@@ -25,7 +25,7 @@ class ProductDetailsViewModel {
     }
     
     var productRating: String {
-        return "\(product.installments.quantity) ⭐ (\(product.availableQuantity) reviews)"
+        return "\(product.installments?.quantity ?? 0) ⭐ (\(product.availableQuantity) reviews)"
     }
     
     var productDescription: String {
@@ -49,9 +49,9 @@ class ProductDetailsViewModel {
     }
     
     var installmentText: String {
-        let quantity = product.installments.quantity
-        let amount = String(format: "%.2f", product.installments.amount)
-        return "\(quantity)x de \(amount) \(product.installments.currencyId)"
+        let quantity = product.installments?.quantity ?? 0
+        let amount = String(format: "%.2f", product.installments?.amount ?? 0.0)
+        return "\(quantity ?? 0)x de \(amount) \(product.installments?.currencyId ?? "")"
     }
     
     var hasFreeShipping: Bool {

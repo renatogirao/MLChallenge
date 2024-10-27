@@ -18,7 +18,7 @@ struct Product: Codable {
     let permalink: String
     let acceptsMercadoPago: Bool
     let shipping: Shipping
-    let installments: Installments
+    let installments: Installments?
     let attributes: [Attribute]
 
     private enum CodingKeys: String, CodingKey {
