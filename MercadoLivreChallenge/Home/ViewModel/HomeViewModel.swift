@@ -9,15 +9,19 @@ import Foundation
 
 class HomeViewModel {
     
+    // MARK: - Properties
     var categories: [Category] = []
     private let networkingManager = NetworkingManager()
     
     var productsUpdated: (() -> Void)?
     var errorOccurred: ((Error) -> Void)?
-    
+    var isLoading: Observable<Bool> = Observable(false)
+
     func fetchAllCategories() {
+        isLoading.value = true
         let endpoint = APIEndpoint.categories
         networkingManager.fetchData(from: endpoint, responseType: [Category].self) { [weak self] result in
+            self?.isLoading.value = false
             switch result {
             case .success(let categories):
                 self?.categories = categories
