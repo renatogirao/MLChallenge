@@ -53,8 +53,14 @@ class HomeView: UIView {
         collectionView.backgroundColor = .clear
         return collectionView
     }()
-    
-    // MARK: - Initializer
+
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -70,11 +76,11 @@ class HomeView: UIView {
         addSubview(searchBar)
         addSubview(collectionView)
         addSubview(titleHomeLabel)
+        addSubview(activityIndicator)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             titleHomeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             titleHomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleHomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
@@ -86,7 +92,18 @@ class HomeView: UIView {
             collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 16),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+    }
+
+    func showLoadingIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    func hideLoadingIndicator() {
+        activityIndicator.stopAnimating()
     }
 }
