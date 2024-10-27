@@ -34,4 +34,3 @@ struct Paging: Codable {
         case primaryResults = "primary_results"
     }
 }
-
