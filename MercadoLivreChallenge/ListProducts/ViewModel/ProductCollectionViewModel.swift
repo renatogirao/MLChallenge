@@ -1,14 +1,13 @@
 //
-//  ProductCarouselViewModel.swift
+//  ProductCollectionViewModel.swift
 //  MercadoLivreChallenge
 //
-//  Created by Renato Savoia Girão on 26/10/24.
+//  Created by Renato Savoia Girão on 27/10/24.
 //
 
-import Foundation
+import UIKit
 
-class ProductCarouselViewModel {
-    
+class ProductCollectionViewModel {
     private let product: Product
     
     init(product: Product) {
@@ -20,7 +19,7 @@ class ProductCarouselViewModel {
     }
     
     var price: String {
-        return String(format: "%@ %.2f", product.currencyId, product.price)
+        return "\(product.currencyId) \(product.price)"
     }
     
     var thumbnailURL: URL? {
@@ -31,8 +30,8 @@ class ProductCarouselViewModel {
         return product.shipping.freeShipping
     }
     
-    var freeShippingText: String {
-        return hasFreeShipping ? "Frete Grátis" : ""
+    var rating: String {
+        return "Rating: \(product.installments.rate)"
     }
 }
 

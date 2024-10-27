@@ -8,8 +8,6 @@
 import UIKit
 import Kingfisher
 
-import UIKit
-
 class CategoryCollectionViewCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
@@ -35,10 +33,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = UIColor(hex: "212227")
         titleLabel.backgroundColor = .clear
-        
         contentView.addSubview(titleLabel)
         contentView.addSubview(imageView)
         setupConstraints()
@@ -48,7 +44,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     private func configureCellAppearance() {
         contentView.layer.cornerRadius = 24
         contentView.layer.masksToBounds = true
-        contentView.backgroundColor = UIColor(hex: "212227")
     }
     
     required init?(coder: NSCoder) {

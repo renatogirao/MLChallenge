@@ -47,7 +47,12 @@ class HomeViewController: UIViewController {
     private func fetchProducts() {
         homeViewModel.fetchAllCategories()
     }
+    
+    private func setupSearchBar() {
+        homeView.searchBar.delegate = self
+    }
 }
+
 
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
@@ -81,5 +86,18 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 160, height: 200)
+    }
+}
+
+// MARK: - UISearcBarDelegate
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        
+        let listProductsVC = ListProductsViewController()
+        listProductsVC.viewModel.fetchProducts(searchText: searchText)
+        navigationController?.pushViewController(listProductsVC, animated: true)
+        
+        searchBar.resignFirstResponder()
     }
 }

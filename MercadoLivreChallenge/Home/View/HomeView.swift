@@ -21,7 +21,7 @@ class HomeView: UIView {
         return label
     }()
     
-    private let searchBar: UISearchBar = {
+    let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Pesquisar produtos"
         searchBar.backgroundImage = UIImage()
@@ -29,9 +29,16 @@ class HomeView: UIView {
         searchBar.isTranslucent = true
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.tintColor = .white
-        searchBar.layer.borderColor = UIColor.clear.cgColor
-        searchBar.layer.backgroundColor = UIColor(hex: "141821")?.cgColor
-        searchBar.layer.cornerRadius = 12
+        let searchBarHeight: CGFloat = 50
+        searchBar.heightAnchor.constraint(equalToConstant: searchBarHeight).isActive = true
+        
+        if let textField = searchBar.value(forKey: "searchField") as? UITextField {
+               textField.font = UIFont.systemFont(ofSize: 18)
+               textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+               textField.layer.cornerRadius = 12
+               textField.layer.masksToBounds = true
+           }
+        
         return searchBar
     }()
     
@@ -46,12 +53,6 @@ class HomeView: UIView {
         collectionView.backgroundColor = .clear
         return collectionView
     }()
-    
-    var productViewModels: [ProductCarouselViewModel] = [] {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
     
     // MARK: - Initializer
     override init(frame: CGRect) {
@@ -75,7 +76,7 @@ class HomeView: UIView {
         NSLayoutConstraint.activate([
             
             titleHomeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            titleHomeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 18),
+            titleHomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             titleHomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             
             searchBar.topAnchor.constraint(equalTo: titleHomeLabel.bottomAnchor, constant: 18),
