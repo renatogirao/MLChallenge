@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHomeView()
+        setupSearchBar()
         homeViewModel.productsUpdated = { [weak self] in
             DispatchQueue.main.async {
                 self?.homeView.collectionView.reloadData()
@@ -89,13 +90,14 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - UISearcBarDelegate
+// MARK: - UISearchBarDelegate
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
         
         let listProductsVC = ListProductsViewController()
-        listProductsVC.viewModel.fetchProducts(searchText: searchText)
+        listProductsVC.viewModel.searchProducts(with: searchText)
+        
         navigationController?.pushViewController(listProductsVC, animated: true)
         
         searchBar.resignFirstResponder()
