@@ -26,7 +26,8 @@ class ListProductsView: UIView {
         layout.minimumInteritemSpacing = 10
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = UIColor(hex: "0D0F14") 
+        collectionView.backgroundColor = .clear
+        collectionView.layer.cornerRadius = 12
         return collectionView
     }()
     
@@ -59,10 +60,10 @@ class ListProductsView: UIView {
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 16),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
 }

@@ -65,14 +65,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 100),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 8),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
             priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),

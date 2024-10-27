@@ -45,8 +45,8 @@ class HomeView: UIView {
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 20
-        layout.minimumInteritemSpacing = 20
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.layer.cornerRadius = 12
@@ -76,17 +76,17 @@ class HomeView: UIView {
         NSLayoutConstraint.activate([
             
             titleHomeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            titleHomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            titleHomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleHomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             
             searchBar.topAnchor.constraint(equalTo: titleHomeLabel.bottomAnchor, constant: 18),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 24),
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 16),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
 }
