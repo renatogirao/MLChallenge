@@ -10,7 +10,7 @@ import UIKit
 class ListProductsViewController: UIViewController {
     
     private var listProductsView: ListProductsView!
-    private var viewModel = ListProductsViewModel()
+    var viewModel = ListProductsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
