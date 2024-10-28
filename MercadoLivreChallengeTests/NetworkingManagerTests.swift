@@ -11,7 +11,7 @@ import XCTest
 final class NetworkingManagerTests: XCTestCase {
     
     var networkingManager: NetworkingManager!
-    let timeout: TimeInterval = 5.0
+    let timeout: TimeInterval = 10.0
     
     override func setUp() {
         super.setUp()
@@ -23,7 +23,7 @@ final class NetworkingManagerTests: XCTestCase {
         super.tearDown()
     }
 
-    // MARK: - Testi ng URL for all endpoints
+    // MARK: - Testing URL for all endpoints
     
     func testURLConstructionForCategoriesEndpoint() {
         let endpoint = APIEndpoint.categories
@@ -59,5 +59,50 @@ final class NetworkingManagerTests: XCTestCase {
         }
         wait(for: [expectation], timeout: timeout)
     }
-}
+        
+    func testFetchDataWithDecodingError() {
+        let endpoint = APIEndpoint.product(productId: "MLB123456789")
+        let invalidData = "{ invalid json }".data(using: .utf8)!
+        
+        let mockURLSession = MockURLSession(data: invalidData, urlResponse: nil, error: nil)
+        networkingManager.urlSession = mockURLSession
+        
+        let expectation = XCTestExpectation(description: "Completion should return decoding error")
+        
+        networkingManager.fetchData(from: endpoint, responseType: Product.self) { result in
+            if case .failure(let error) = result {
+                if case .decodingFailed(let decodingError) = error {
+                    XCTAssertNotNil(decodingError)
+                    expectation.fulfill()
+                } else {
+                    XCTFail("Expected decodingFailed error")
+                }
+            }
+        }
+        
+        wait(for: [expectation], timeout: timeout)
+    }
+
+    func testFetchDataWithNetworkError() {
+        let endpoint = APIEndpoint.product(productId: "MLB123456789")
+        let networkError = NSError(domain: "NetworkError", code: -1009, userInfo: nil)
+        
+        let mockURLSession = MockURLSession(data: nil, urlResponse: nil, error: networkError)
+        networkingManager = NetworkingManager(urlSession: mockURLSession)
+        
+        let expectation = XCTestExpectation(description: "Completion should return network error")
+        
+        networkingManager.fetchData(from: endpoint, responseType: Product.self) { result in
+            if case .failure(let error) = result {
+                if case .requestFailed(let receivedError) = error {
+                    XCTAssertEqual(receivedError.localizedDescription, networkError.localizedDescription)
+                    expectation.fulfill()
+                } else {
+                    XCTFail("Expected requestFailed error")
+                }
+            }
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
+    }}
 

@@ -24,6 +24,7 @@
 		573F58D92CD037A400DF01E3 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58D82CD037A400DF01E3 /* Attribute.swift */; };
 		573F58DB2CD0381A00DF01E3 /* SalePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58DA2CD0381A00DF01E3 /* SalePrice.swift */; };
 		573F58DD2CD040CC00DF01E3 /* NetworkingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58DC2CD040CC00DF01E3 /* NetworkingManagerTests.swift */; };
+		573F58DF2CD0468200DF01E3 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58DE2CD0468200DF01E3 /* MockURLSession.swift */; };
 		5764DAE02CCC58BA00399D9D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */; };
 		57C5BCD32CC82A11004929BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCD22CC82A11004929BC /* AppDelegate.swift */; };
 		57C5BCD52CC82A11004929BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCD42CC82A11004929BC /* SceneDelegate.swift */; };
@@ -86,6 +87,7 @@
 		573F58D82CD037A400DF01E3 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		573F58DA2CD0381A00DF01E3 /* SalePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalePrice.swift; sourceTree = "<group>"; };
 		573F58DC2CD040CC00DF01E3 /* NetworkingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerTests.swift; sourceTree = "<group>"; };
+		573F58DE2CD0468200DF01E3 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		57C5BCCF2CC82A11004929BC /* MercadoLivreChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoLivreChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C5BCD22CC82A11004929BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 			children = (
 				57C5BCEC2CC82A14004929BC /* MercadoLivreChallengeTests.swift */,
 				573F58DC2CD040CC00DF01E3 /* NetworkingManagerTests.swift */,
+				573F58DE2CD0468200DF01E3 /* MockURLSession.swift */,
 			);
 			path = MercadoLivreChallengeTests;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573F58DF2CD0468200DF01E3 /* MockURLSession.swift in Sources */,
 				57C5BCED2CC82A14004929BC /* MercadoLivreChallengeTests.swift in Sources */,
 				573F58DD2CD040CC00DF01E3 /* NetworkingManagerTests.swift in Sources */,
 			);

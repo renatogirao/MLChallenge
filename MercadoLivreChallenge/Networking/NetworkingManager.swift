@@ -24,9 +24,9 @@ enum APIEndpoint {
         case .imageCategories(let categoryId):
             return "/categories/\(categoryId)"
         case .product(let productId):
-            return "/items/\(productId)"
+            return productId.isEmpty ? "" : "/items/\(productId)"
         case .rateProduct(let productId):
-            return "/reviews/item/\(productId)"
+            return productId.isEmpty ? "" : "/reviews/item/\(productId)"
         }
     }
 }
@@ -53,21 +53,22 @@ enum APIError: Error, Equatable {
 class NetworkingManager {
     
     let baseURL = "https://api.mercadolibre.com"
+    var urlSession: URLSession
+    
+    init(urlSession: URLSession = URLSession.shared) {
+        self.urlSession = urlSession
+    }
     
     func fetchData<T: Decodable>(from endpoint: APIEndpoint, responseType: T.Type, completion: @escaping (Result<T, APIError>) -> Void) {
         
-        guard let url = URL(string: baseURL + endpoint.path) else {
+        guard !endpoint.path.isEmpty, let url = URL(string: baseURL + endpoint.path) else {
             completion(.failure(.invalidURL))
             return
         }
-        print("URL de busca pesquisada: \(url)")
-        let workItem = DispatchWorkItem {
-                   DispatchQueue.main.async {
-                   }
-               }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            workItem.cancel()
+        print("URL de busca pesquisada: \(url)")
+        
+        let task = urlSession.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(.requestFailed(error)))
                 return
