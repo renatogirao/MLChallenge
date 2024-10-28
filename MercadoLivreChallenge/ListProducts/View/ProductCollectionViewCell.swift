@@ -13,7 +13,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 18
+        imageView.layer.cornerRadius = 12
         imageView.layer.masksToBounds = true
         imageView.layer.borderColor = UIColor(hex: "28282E")?.cgColor
         imageView.layer.borderWidth = 2.0
@@ -65,14 +65,13 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 8),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 4),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
             
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
             
             priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
@@ -87,7 +86,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     func configure(with product: Product) {
         titleLabel.text = product.title
-        priceLabel.text = String(format: "%@ %.2f", product.currencyId, product.price)
+        let priceFormatted = product.price.formattedCurrency(for: .brl)
+        priceLabel.text = priceFormatted
         freeShippingLabel.text = product.shipping.freeShipping ? "Frete Grátis" : ""
         
         if let url = URL(string: product.thumbnail) {
