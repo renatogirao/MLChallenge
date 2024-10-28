@@ -10,6 +10,7 @@ xcuserdata/
 !*.xcodeproj/xcshareddata/xcdebugger/
 !*.xcodeproj/xcshareddata/xcschemes/
 *.xcworkspace
+*.xcuserstate
 !*.xcworkspace/contents.xcworkspacedata
 !*.xcworkspace/xcshareddata
 !*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
