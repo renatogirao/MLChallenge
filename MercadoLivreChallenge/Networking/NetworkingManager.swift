@@ -50,7 +50,7 @@ enum APIError: Error, Equatable {
     }
 }
 
-class NetworkingManager {
+class NetworkingManager: NetworkingManagerProtocol {
     
     let baseURL = "https://api.mercadolibre.com"
     var urlSession: URLSession

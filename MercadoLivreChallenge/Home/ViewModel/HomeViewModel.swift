@@ -5,18 +5,22 @@
 //  Created by Renato Savoia Girão on 25/10/24.
 //
 
-import Foundation
+import UIKit
 
 class HomeViewModel {
     
     // MARK: - Properties
     var categories: [Category] = []
-    private let networkingManager = NetworkingManager()
+    private let networkingManager: NetworkingManagerProtocol
     
     var productsUpdated: (() -> Void)?
     var errorOccurred: ((Error) -> Void)?
     var isLoading: Observable<Bool> = Observable(false)
-
+    
+    init(networkingManager: NetworkingManagerProtocol = NetworkingManager()) {
+        self.networkingManager = networkingManager
+    }
+    
     func fetchAllCategories() {
         isLoading.value = true
         let endpoint = APIEndpoint.categories
