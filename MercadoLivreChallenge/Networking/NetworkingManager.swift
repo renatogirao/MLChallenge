@@ -31,15 +31,28 @@ enum APIEndpoint {
     }
 }
 
-enum APIError: Error {
+enum APIError: Error, Equatable {
     case invalidURL
     case requestFailed(Error)
     case decodingFailed(Error)
+    
+    static func == (lhs: APIError, rhs: APIError) -> Bool {
+        switch (lhs, rhs) {
+        case (.invalidURL, .invalidURL):
+            return true
+        case (.requestFailed(let lhsError), .requestFailed(let rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        case (.decodingFailed(let lhsError), .decodingFailed(let rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        default:
+            return false
+        }
+    }
 }
 
 class NetworkingManager {
     
-    private let baseURL = "https://api.mercadolibre.com"
+    let baseURL = "https://api.mercadolibre.com"
     
     func fetchData<T: Decodable>(from endpoint: APIEndpoint, responseType: T.Type, completion: @escaping (Result<T, APIError>) -> Void) {
         

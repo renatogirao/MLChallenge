@@ -21,9 +21,9 @@ struct CategoryDetail: Decodable {
     let pathFromRoot: [Category]
     let childrenCategories: [ChildCategory]
     let attributeTypes: String
-    let settings: Settings? // Tornar opcional
+    let settings: Settings?
     let channelsSettings: [ChannelSetting]
-    let metaCategId: String? // Permitir valores nulos
+    let metaCategId: String?
     let attributable: Bool
     let dateCreated: String
 
