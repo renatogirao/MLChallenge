@@ -23,6 +23,7 @@ struct Product: Codable {
     let salePrice: SalePrice?
     let description: String?
     let pictures: [Picture]?
+    let warranty: String?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -40,34 +41,7 @@ struct Product: Codable {
         case salePrice = "sale_price"
         case description
         case pictures
-    }
-}
-
-struct Installments: Codable {
-    let quantity: Int
-    let amount: Double
-    let rate: Double
-    let currencyId: String
-
-    private enum CodingKeys: String, CodingKey {
-        case quantity
-        case amount
-        case rate
-        case currencyId = "currency_id"
-    }
-}
-
-struct SalePrice: Codable {
-    let priceId: String?
-    let amount: Double
-    let currencyId: String
-    let conditions: SaleConditions?
-
-    private enum CodingKeys: String, CodingKey {
-        case priceId = "price_id"
-        case amount
-        case currencyId = "currency_id"
-        case conditions
+        case warranty
     }
 }
 
@@ -82,29 +56,5 @@ struct SaleConditions: Codable {
         case contextRestrictions = "context_restrictions"
         case startTime = "start_time"
         case endTime = "end_time"
-    }
-}
-
-struct Shipping: Codable {
-    let freeShipping: Bool
-    let logisticType: String? 
-    let storePickUp: Bool
-
-    private enum CodingKeys: String, CodingKey {
-        case freeShipping = "free_shipping"
-        case logisticType = "logistic_type"
-        case storePickUp = "store_pick_up"
-    }
-}
-
-struct Attribute: Codable {
-    let id: String
-    let name: String
-    let valueName: String?
-
-    private enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case valueName = "value_name"
     }
 }
