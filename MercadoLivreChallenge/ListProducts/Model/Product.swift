@@ -14,13 +14,15 @@ struct Product: Codable {
     let thumbnail: String
     let currencyId: String
     let price: Double
-    let availableQuantity: Int
+    let availableQuantity: Int?
     let permalink: String
     let acceptsMercadoPago: Bool
     let shipping: Shipping
     let installments: Installments?
     let attributes: [Attribute]
     let salePrice: SalePrice?
+    let description: String?
+    let pictures: [Picture]?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -36,6 +38,8 @@ struct Product: Codable {
         case installments
         case attributes
         case salePrice = "sale_price"
+        case description
+        case pictures
     }
 }
 

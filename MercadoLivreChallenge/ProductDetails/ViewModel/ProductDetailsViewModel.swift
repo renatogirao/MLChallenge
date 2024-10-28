@@ -8,53 +8,46 @@
 import UIKit
 
 class ProductDetailsViewModel {
+    var productId: String
+    var productTitle: String
+    var productDescription: String
+    var productThumbnailURL: URL?
+    var productPrice: String
+    var productRating: String
+    var productImageURL: URL?
+    var acceptsMercadoPago: Bool
+    private let networkingManager = NetworkingManager()
     
-    private let product: Product
-    
-    init(product: Product) {
-        self.product = product
+    init(productId: String) {
+        self.productId = productId
+        self.productTitle = ""
+        self.productDescription = ""
+        self.productImageURL = nil
+        self.productPrice = ""
+        self.productRating = ""
+        self.acceptsMercadoPago = false
     }
     
-    var productTitle: String {
-        return product.title
-    }
-    
-    var productPrice: String {
-        let formattedPrice = String(format: "%.2f", product.price)
-        return "\(product.currencyId) \(formattedPrice)"
-    }
-    
-    var productRating: String {
-        return "\(product.installments?.quantity ?? 0) ⭐ (\(product.availableQuantity) reviews)"
-    }
-    
-    var productDescription: String {
-        return product.attributes.map { "\($0.name): \($0.valueName ?? "")" }.joined(separator: "\n")
-    }
-    
-    var productCondition: String {
-        return product.condition == "new" ? "Novo" : "Usado"
-    }
-    
-    var productThumbnailURL: URL? {
-        return URL(string: product.thumbnail)
-    }
-    
-    var acceptMercadoPago: Bool {
-        return product.acceptsMercadoPago
-    }
-    
-    var productPermalink: String {
-        return product.permalink
-    }
-    
-    var installmentText: String {
-        let quantity = product.installments?.quantity ?? 0
-        let amount = String(format: "%.2f", product.installments?.amount ?? 0.0)
-        return "\(quantity)x de \(amount) \(product.installments?.currencyId ?? "")"
-    }
-    
-    var hasFreeShipping: Bool {
-        return product.shipping.freeShipping
+    func fetchProductDetails(completion: @escaping (Result<Void, Error>) -> Void) {
+        let endpoint = APIEndpoint.product(productId: productId)
+        networkingManager.fetchData(from: endpoint, responseType: Product.self) { [weak self] result in
+            switch result {
+            case .success(let product):
+                self?.productTitle = product.title
+                self?.productDescription = product.description ?? "Sem descrição disponível"
+                self?.productThumbnailURL = URL(string: product.thumbnail)
+                self?.acceptsMercadoPago = product.acceptsMercadoPago
+                let priceFormatted = product.price.formattedCurrency(for: .brl)
+                self?.productPrice = priceFormatted
+                
+                if let firstPicture = product.pictures?.first {
+                    self?.productImageURL = URL(string: firstPicture.url)
+                }
+                
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

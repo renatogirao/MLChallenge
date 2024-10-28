@@ -5,20 +5,17 @@
 //  Created by Renato Savoia Girão on 26/10/24.
 //
 
-import UIKit
+import Foundation
 
 class ListProductsViewModel {
-    
-    // MARK: - Properties
+    var productsUpdated: (() -> Void)?
+    var errorOccurred: ((Error) -> Void)?
     
     var products: [Product] = []
     private let networkingManager = NetworkingManager()
-    
-    var productsUpdated: (() -> Void)?
-    var errorOccurred: ((Error) -> Void)?
-    var isLoading: Observable<Bool> = Observable(false)
+    private var loadingTask: DispatchWorkItem?
 
-    func numberOfProducts() -> Int {
+    var numberOfProducts: Int {
         return products.count
     }
     
@@ -26,19 +23,22 @@ class ListProductsViewModel {
         return products[index]
     }
     
-    func searchProducts(with query: String) {
-        isLoading.value = true
-        
-        networkingManager.fetchData(from: .search(searchText: query), responseType: SearchResponse.self) { [weak self] result in
-            self?.isLoading.value = false
-            
+    func searchProducts(with searchText: String) {
+        loadingTask = DispatchWorkItem {
+            self.errorOccurred?(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Ocorreu um erro ao carregar os produtos"]))
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: loadingTask!)
+        DispatchQueue.main.async {
+              self.errorOccurred?(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Loading started."]))
+          }
+        networkingManager.fetchData(from: .search(searchText: searchText), responseType: SearchResponse.self) { [weak self] result in
+            self?.loadingTask?.cancel()
             switch result {
-            case .success(let searchResponse):
-                self?.products = searchResponse.results
+            case .success(let response):
+                self?.products = response.results
                 self?.productsUpdated?()
             case .failure(let error):
-                // todo = alert to show error to user
-                self?.errorOccurred?(error) 
+                self?.errorOccurred?(error)
             }
         }
     }

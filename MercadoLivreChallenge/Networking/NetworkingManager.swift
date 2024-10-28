@@ -11,6 +11,7 @@ enum APIEndpoint {
     case categories
     case search(searchText: String)
     case imageCategories(categoryId: String)
+    case product(productId: String)
 
     var path: String {
         switch self {
@@ -21,6 +22,8 @@ enum APIEndpoint {
             return "/sites/MLB/search?q=\(encodedText)"
         case .imageCategories(let categoryId):
             return "/categories/\(categoryId)"
+        case .product(let productId):
+            return "/items/\(productId)"
         }
     }
 }
@@ -44,7 +47,14 @@ class NetworkingManager {
         
         print("URL de busca pesquisada: \(url)")
         
+        let workItem = DispatchWorkItem {
+                   DispatchQueue.main.async {
+                       
+                   }
+               }
+        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            workItem.cancel()
             if let error = error {
                 completion(.failure(.requestFailed(error)))
                 return

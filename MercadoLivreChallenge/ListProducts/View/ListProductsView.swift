@@ -14,9 +14,21 @@ class ListProductsView: UIView {
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Pesquisar produtos"
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.backgroundImage = UIImage()
         searchBar.barTintColor = .clear
+        searchBar.isTranslucent = true
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.tintColor = .white
+        let searchBarHeight: CGFloat = 50
+        searchBar.heightAnchor.constraint(equalToConstant: searchBarHeight).isActive = true
+        
+        if let textField = searchBar.value(forKey: "searchField") as? UITextField {
+            textField.font = UIFont.systemFont(ofSize: 18)
+            textField.textColor = .white
+            textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            textField.layer.cornerRadius = 12
+            textField.layer.masksToBounds = true
+        }
         return searchBar
     }()
     
@@ -66,13 +78,13 @@ class ListProductsView: UIView {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
             collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 16),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)

@@ -46,7 +46,7 @@ class ProductDetailsView: UIView {
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = .orange
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -54,7 +54,7 @@ class ProductDetailsView: UIView {
     
     private let buyNowButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Buy Now", for: .normal)
+        button.setTitle("Adicionar ao carrinho", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.backgroundColor = UIColor.orange
         button.setTitleColor(.white, for: .normal)
@@ -62,6 +62,8 @@ class ProductDetailsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    
     
     private let viewModel: ProductDetailsViewModel
     
@@ -89,7 +91,7 @@ class ProductDetailsView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            productImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            productImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             productImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             productImageView.heightAnchor.constraint(equalToConstant: 250),
@@ -105,17 +107,17 @@ class ProductDetailsView: UIView {
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            priceLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -100),
             priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            priceLabel.centerYAnchor.constraint(equalTo: buyNowButton.centerYAnchor),
             
             buyNowButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
             buyNowButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             buyNowButton.heightAnchor.constraint(equalToConstant: 50),
-            buyNowButton.widthAnchor.constraint(equalToConstant: 150)
+            buyNowButton.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
     
-    private func configureView() {
+    func configureView() {
         productNameLabel.text = viewModel.productTitle
         ratingLabel.text = viewModel.productRating
         descriptionLabel.text = viewModel.productDescription

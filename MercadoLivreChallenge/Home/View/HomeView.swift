@@ -33,11 +33,12 @@ class HomeView: UIView {
         searchBar.heightAnchor.constraint(equalToConstant: searchBarHeight).isActive = true
         
         if let textField = searchBar.value(forKey: "searchField") as? UITextField {
-               textField.font = UIFont.systemFont(ofSize: 18)
-               textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-               textField.layer.cornerRadius = 12
-               textField.layer.masksToBounds = true
-           }
+            textField.font = UIFont.systemFont(ofSize: 18)
+            textField.textColor = .white
+            textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            textField.layer.cornerRadius = 12
+            textField.layer.masksToBounds = true
+        }
         
         return searchBar
     }()
