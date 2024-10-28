@@ -12,6 +12,7 @@ enum APIEndpoint {
     case search(searchText: String)
     case imageCategories(categoryId: String)
     case product(productId: String)
+    case rateProduct(productId: String)
 
     var path: String {
         switch self {
@@ -24,6 +25,8 @@ enum APIEndpoint {
             return "/categories/\(categoryId)"
         case .product(let productId):
             return "/items/\(productId)"
+        case .rateProduct(let productId):
+            return "/reviews/item/\(productId)"
         }
     }
 }
@@ -44,12 +47,9 @@ class NetworkingManager {
             completion(.failure(.invalidURL))
             return
         }
-        
         print("URL de busca pesquisada: \(url)")
-        
         let workItem = DispatchWorkItem {
                    DispatchQueue.main.async {
-                       
                    }
                }
         
