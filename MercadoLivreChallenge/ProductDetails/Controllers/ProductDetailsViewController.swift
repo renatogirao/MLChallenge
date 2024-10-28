@@ -23,8 +23,8 @@ class ProductDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(productDetailsView) // Adiciona a view
-        setupConstraints() // Configura as restrições
+        view.addSubview(productDetailsView)
+        setupConstraints()
         loadProductDetails()
     }
 
@@ -39,15 +39,21 @@ class ProductDetailsViewController: UIViewController {
     }
     
     private func loadProductDetails() {
-        viewModel.fetchProductDetails { [weak self] result in
-            switch result {
-            case .success():
-                DispatchQueue.main.async {
-                    self?.productDetailsView.configureView() // Chama o método para configurar a view
+            viewModel.fetchProductDetails { [weak self] result in
+                switch result {
+                case .success():
+                    DispatchQueue.main.async {
+                        self?.updateProductDetailsView()
+                        self?.viewModel.getProductRate(itemID: self?.viewModel.productId ?? "")
+                    }
+                case .failure(let error):
+                    print("Erro ao carregar os detalhes do produto: \(error)")
                 }
-            case .failure(let error):
-                print("Erro ao carregar os detalhes do produto: \(error)")
             }
         }
-    }
+    
+    private func updateProductDetailsView() {
+        productDetailsView.configure()
+      }
+    
 }

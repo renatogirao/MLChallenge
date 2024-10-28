@@ -13,9 +13,10 @@ class ProductDetailsViewModel {
     var productDescription: String
     var productThumbnailURL: URL?
     var productPrice: String
-    var productRating: String
-    var productImageURL: URL?
+    @Published var productRate: String
+    @Published var productImageURL: URL?
     var acceptsMercadoPago: Bool
+    var warrantyText: String?
     private let networkingManager = NetworkingManager()
     
     init(productId: String) {
@@ -24,8 +25,9 @@ class ProductDetailsViewModel {
         self.productDescription = ""
         self.productImageURL = nil
         self.productPrice = ""
-        self.productRating = ""
+        self.productRate = "Sem avaliações"
         self.acceptsMercadoPago = false
+        self.warrantyText = ""
     }
     
     func fetchProductDetails(completion: @escaping (Result<Void, Error>) -> Void) {
@@ -34,9 +36,10 @@ class ProductDetailsViewModel {
             switch result {
             case .success(let product):
                 self?.productTitle = product.title
-                self?.productDescription = product.description ?? "Sem descrição disponível"
+                self?.productDescription = product.attributes.first?.valueName ?? "Sem descrição disponível"
                 self?.productThumbnailURL = URL(string: product.thumbnail)
                 self?.acceptsMercadoPago = product.acceptsMercadoPago
+                self?.warrantyText = product.warranty ?? "Sem garantia"
                 let priceFormatted = product.price.formattedCurrency(for: .brl)
                 self?.productPrice = priceFormatted
                 
@@ -47,6 +50,19 @@ class ProductDetailsViewModel {
                 completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))
+            }
+        }
+    }
+    
+    func getProductRate(itemID: String) {
+        networkingManager.fetchData(from: .rateProduct(productId: itemID), responseType: ProductRate.self) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let reviewResponse):
+                    self?.productRate = reviewResponse.rateAverage
+                case .failure(let error):
+                    print("Erro ao buscar avaliação do produto: \(error)")
+                }
             }
         }
     }
