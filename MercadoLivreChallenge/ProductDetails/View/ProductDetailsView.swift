@@ -44,9 +44,18 @@ class ProductDetailsView: UIView {
     
     private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.systemFont(ofSize: 10)
         label.text = "Sem avaliações"
         label.textColor = .orange
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let warrantyLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 10)
+        label.textColor = .lightGray
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -60,15 +69,6 @@ class ProductDetailsView: UIView {
         imageView.isHidden = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
-    }()
-    
-    private let warrantyLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .lightGray
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
     }()
     
     private let descriptionLabel: UILabel = {
@@ -134,14 +134,14 @@ class ProductDetailsView: UIView {
             productImageCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             productImageCollectionView.heightAnchor.constraint(equalToConstant: 250),
             
-            pageControl.topAnchor.constraint(equalTo: productImageCollectionView.bottomAnchor, constant: 8),
+            pageControl.topAnchor.constraint(equalTo: productImageCollectionView.bottomAnchor, constant: 2),
             pageControl.centerXAnchor.constraint(equalTo: productImageCollectionView.centerXAnchor),
             
-            ratingLabel.topAnchor.constraint(equalTo: productImageCollectionView.bottomAnchor, constant: 8),
+            ratingLabel.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 4),
             ratingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             ratingLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            warrantyLabel.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10),
+            warrantyLabel.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 4),
             warrantyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             warrantyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
@@ -152,11 +152,11 @@ class ProductDetailsView: UIView {
             descriptionLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-
-            acceptsMercadoPagoView.topAnchor.constraint(equalTo: warrantyLabel.bottomAnchor, constant: 10),
+            
+            acceptsMercadoPagoView.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -8),
             acceptsMercadoPagoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            acceptsMercadoPagoView.heightAnchor.constraint(equalToConstant: 42),
-            acceptsMercadoPagoView.widthAnchor.constraint(equalToConstant: 72),
+            acceptsMercadoPagoView.heightAnchor.constraint(equalToConstant: 50),
+            acceptsMercadoPagoView.widthAnchor.constraint(equalToConstant: 80),
             
             priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             priceLabel.centerYAnchor.constraint(equalTo: buyNowButton.centerYAnchor),
