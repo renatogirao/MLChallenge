@@ -74,10 +74,6 @@ extension ProductDetailsViewController: UICollectionViewDataSource {
     }
 }
 
-extension ProductDetailsViewController: UICollectionViewDelegate {
-    
-}
-
 // MARK: - UICollectionViewDelegateFlowLayout
 extension ProductDetailsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

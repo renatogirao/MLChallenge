@@ -9,8 +9,6 @@ import UIKit
 import Kingfisher
 
 class ProductDetailsView: UIView {
-    
-    private var imageURLs: [URL] = []
        
     lazy var productImageCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -28,10 +26,10 @@ class ProductDetailsView: UIView {
     let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.currentPageIndicatorTintColor = .orange
-        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.pageIndicatorTintColor = .white
         pageControl.hidesForSinglePage = true
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.backgroundColor = .green
+        pageControl.backgroundColor = .clear
         return pageControl
     }()
     
@@ -49,6 +47,7 @@ class ProductDetailsView: UIView {
         label.font = UIFont.systemFont(ofSize: 18)
         label.text = "Sem avaliações"
         label.textColor = .orange
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -64,13 +63,13 @@ class ProductDetailsView: UIView {
     }()
     
     private let warrantyLabel: UILabel = {
-           let label = UILabel()
-           label.font = UIFont.systemFont(ofSize: 16)
-           label.textColor = .lightGray
-           label.numberOfLines = 0
-           label.translatesAutoresizingMaskIntoConstraints = false
-           return label
-       }()
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = .lightGray
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
@@ -137,10 +136,8 @@ class ProductDetailsView: UIView {
             
             pageControl.topAnchor.constraint(equalTo: productImageCollectionView.bottomAnchor, constant: 8),
             pageControl.centerXAnchor.constraint(equalTo: productImageCollectionView.centerXAnchor),
-            pageControl.heightAnchor.constraint(equalToConstant: 24),
-            pageControl.widthAnchor.constraint(equalToConstant: 40),
             
-            ratingLabel.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 8),
+            ratingLabel.topAnchor.constraint(equalTo: productImageCollectionView.bottomAnchor, constant: 8),
             ratingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             ratingLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
@@ -155,10 +152,6 @@ class ProductDetailsView: UIView {
             descriptionLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
-            warrantyLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
-            warrantyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            warrantyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
 
             acceptsMercadoPagoView.topAnchor.constraint(equalTo: warrantyLabel.bottomAnchor, constant: 10),
             acceptsMercadoPagoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -184,15 +177,18 @@ class ProductDetailsView: UIView {
             self.warrantyLabel.text = viewModel.warrantyText ?? "Sem garantia"
             self.acceptsMercadoPagoView.isHidden = !viewModel.acceptsMercadoPago
             
-            self.imageURLs = viewModel.productImageURLs
-            self.pageControl.numberOfPages = self.imageURLs.count
+            
+            self.pageControl.numberOfPages = viewModel.productImageURLs.count
             self.productImageCollectionView.reloadData()
+            self.layoutIfNeeded()
         }
     }
 }
 
 extension ProductDetailsViewController: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView == productDetailsView.productImageCollectionView else { return }
         guard scrollView.frame.width > 0 else { return }
         let pageIndex = Int(scrollView.contentOffset.x / scrollView.frame.width)
         productDetailsView.pageControl.currentPage = pageIndex

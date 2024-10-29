@@ -41,6 +41,7 @@ class ProductDetailsViewModel {
                 self?.productThumbnailURL = URL(string: product.thumbnail)
                 self?.acceptsMercadoPago = product.acceptsMercadoPago
                 self?.warrantyText = product.warranty ?? "Sem garantia"
+                print("GARANTIA: \(product.warranty)")
                 let priceFormatted = product.price.formattedCurrency(for: .brl)
                 self?.productPrice = priceFormatted
                 self?.productImageURLs = product.pictures?.compactMap { URL(string: $0.url) } ?? []
