@@ -122,4 +122,58 @@ final class ModelTests: XCTestCase {
         XCTAssertEqual(paging.limit, 20)
         XCTAssertEqual(paging.primaryResults, 15)
     }
-}
+        
+        func testAttributeDecoding() throws {
+            let json = """
+            {
+                "id": "123",
+                "name": "Color",
+                "value_id": "456",
+                "value_name": "Red"
+            }
+            """.data(using: .utf8)!
+            
+            let attribute = try JSONDecoder().decode(Attribute.self, from: json)
+            
+            XCTAssertEqual(attribute.id, "123")
+            XCTAssertEqual(attribute.name, "Color")
+            XCTAssertEqual(attribute.valueId, "456")
+            XCTAssertEqual(attribute.valueName, "Red")
+        }
+        
+        func testAttributeDecodingWithNilValues() throws {
+            let json = """
+            {
+                "id": "123",
+                "name": "Color",
+                "value_id": null,
+                "value_name": null
+            }
+            """.data(using: .utf8)!
+            
+            let attribute = try JSONDecoder().decode(Attribute.self, from: json)
+            
+            XCTAssertEqual(attribute.id, "123")
+            XCTAssertEqual(attribute.name, "Color")
+            XCTAssertNil(attribute.valueId)
+            XCTAssertNil(attribute.valueName)
+        }
+        
+        func testInstallmentsDecoding() throws {
+            let json = """
+            {
+                "quantity": 12,
+                "amount": 100.0,
+                "rate": 1.5,
+                "currency_id": "BRL"
+            }
+            """.data(using: .utf8)!
+            
+            let installments = try JSONDecoder().decode(Installments.self, from: json)
+            
+            XCTAssertEqual(installments.quantity, 12)
+            XCTAssertEqual(installments.amount, 100.0)
+            XCTAssertEqual(installments.rate, 1.5)
+            XCTAssertEqual(installments.currencyId, "BRL")
+        }
+    }
