@@ -10,13 +10,29 @@ import Kingfisher
 
 class ProductDetailsView: UIView {
     
-    private let productImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 12
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    private var imageURLs: [URL] = []
+       
+    lazy var productImageCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(ProductImagesCollectionCell.self, forCellWithReuseIdentifier: "ProductImagesCollectionCell")
+        collectionView.layer.cornerRadius = 12
+        return collectionView
+    }()
+    
+    let pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = .orange
+        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.hidesForSinglePage = true
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.backgroundColor = .green
+        return pageControl
     }()
     
     private let productNameLabel: UILabel = {
@@ -101,7 +117,7 @@ class ProductDetailsView: UIView {
     
     private func setupView() {
         backgroundColor = UIColor(hex: "0D0F14")
-        addSubview(productImageView)
+        addSubview(productImageCollectionView)
         addSubview(productNameLabel)
         addSubview(ratingLabel)
         addSubview(descriptionLabel)
@@ -109,24 +125,30 @@ class ProductDetailsView: UIView {
         addSubview(buyNowButton)
         addSubview(acceptsMercadoPagoView)
         addSubview(warrantyLabel)
+        addSubview(pageControl)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            productImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            productImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            productImageView.heightAnchor.constraint(equalToConstant: 250),
+            productImageCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            productImageCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            productImageCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            productImageCollectionView.heightAnchor.constraint(equalToConstant: 250),
             
-            ratingLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 8),
+            pageControl.topAnchor.constraint(equalTo: productImageCollectionView.bottomAnchor, constant: 8),
+            pageControl.centerXAnchor.constraint(equalTo: productImageCollectionView.centerXAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: 24),
+            pageControl.widthAnchor.constraint(equalToConstant: 40),
+            
+            ratingLabel.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 8),
             ratingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             ratingLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            warrantyLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            warrantyLabel.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10),
             warrantyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             warrantyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            productNameLabel.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 16),
+            productNameLabel.topAnchor.constraint(equalTo: warrantyLabel.bottomAnchor, constant: 16),
             productNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             productNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
         
@@ -153,24 +175,26 @@ class ProductDetailsView: UIView {
         ])
     }
     
-    func configure() {
+    func configure(viewModel: ProductDetailsViewModel) {
         DispatchQueue.main.async {
-            self.productNameLabel.text = self.viewModel.productTitle
-            self.ratingLabel.text = self.viewModel.productRate == "Sem avaliações" ? "Sem avaliações" : "\(self.viewModel.productRate)"
-            self.descriptionLabel.text = self.viewModel.productDescription
-            self.priceLabel.text = self.viewModel.productPrice
-            self.warrantyLabel.text = self.viewModel.warrantyText ?? "Sem garantia"
-            self.acceptsMercadoPagoView.isHidden = !self.viewModel.acceptsMercadoPago
-            self.loadImage()
+            self.productNameLabel.text = viewModel.productTitle
+            self.ratingLabel.text = viewModel.productRate == "Sem avaliações" ? "Sem avaliações" : "\(viewModel.productRate)"
+            self.descriptionLabel.text = viewModel.productDescription
+            self.priceLabel.text = viewModel.productPrice
+            self.warrantyLabel.text = viewModel.warrantyText ?? "Sem garantia"
+            self.acceptsMercadoPagoView.isHidden = !viewModel.acceptsMercadoPago
+            
+            self.imageURLs = viewModel.productImageURLs
+            self.pageControl.numberOfPages = self.imageURLs.count
+            self.productImageCollectionView.reloadData()
         }
     }
-    
-    private func loadImage() {
-        DispatchQueue.main.async {
-            if let url = self.viewModel.productImageURL {
-                self.productImageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
-                
-            }
-        }
+}
+
+extension ProductDetailsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.frame.width > 0 else { return }
+        let pageIndex = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        productDetailsView.pageControl.currentPage = pageIndex
     }
 }

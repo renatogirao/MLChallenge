@@ -17,6 +17,7 @@ class ProductDetailsViewModel {
     @Published var productImageURL: URL?
     var acceptsMercadoPago: Bool
     var warrantyText: String?
+    private(set) var productImageURLs: [URL] = []
     private let networkingManager = NetworkingManager()
     
     init(productId: String) {
@@ -42,10 +43,7 @@ class ProductDetailsViewModel {
                 self?.warrantyText = product.warranty ?? "Sem garantia"
                 let priceFormatted = product.price.formattedCurrency(for: .brl)
                 self?.productPrice = priceFormatted
-                
-                if let firstPicture = product.pictures?.first {
-                    self?.productImageURL = URL(string: firstPicture.url)
-                }
+                self?.productImageURLs = product.pictures?.compactMap { URL(string: $0.url) } ?? []
                 
                 completion(.success(()))
             case .failure(let error):

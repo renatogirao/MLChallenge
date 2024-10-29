@@ -1,5 +1,5 @@
 //
-//  ImageProduct.swift
+//  Picture.swift
 //  MercadoLivreChallenge
 //
 //  Created by Renato Savoia Girão on 28/10/24.

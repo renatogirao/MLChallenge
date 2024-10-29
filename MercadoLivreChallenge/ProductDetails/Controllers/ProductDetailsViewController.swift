@@ -26,6 +26,8 @@ class ProductDetailsViewController: UIViewController {
         view.addSubview(productDetailsView)
         setupConstraints()
         loadProductDetails()
+        productDetailsView.productImageCollectionView.dataSource = self
+        productDetailsView.productImageCollectionView.delegate = self
     }
 
     private func setupConstraints() {
@@ -38,21 +40,48 @@ class ProductDetailsViewController: UIViewController {
         ])
     }
     
-     func loadProductDetails() {
-            viewModel.fetchProductDetails { [weak self] result in
-                switch result {
-                case .success():
-                    DispatchQueue.main.async {
-                        self?.updateProductDetailsView()
-                        self?.viewModel.getProductRate(itemID: self?.viewModel.productId ?? "")
+    func loadProductDetails() {
+        viewModel.fetchProductDetails { [weak self] result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    if let viewModel = self?.viewModel {
+                        self?.productDetailsView.configure(viewModel: viewModel)
+                        self?.productDetailsView.productImageCollectionView.reloadData()
                     }
-                case .failure(let error):
-                    print("Erro ao carregar os detalhes do produto: \(error)")
                 }
+            case .failure(let error):
+                print("Erro ao carregar os detalhes do produto: \(error)")
             }
         }
-    
-    private func updateProductDetailsView() {
-        productDetailsView.configure()
-      }
+    }
 }
+
+
+// MARK: - UICollectionViewDataSource
+
+extension ProductDetailsViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.productImageURLs.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductImagesCollectionCell", for: indexPath) as! ProductImagesCollectionCell
+        let url = viewModel.productImageURLs[indexPath.item]
+        cell.configure(with: url)
+        return cell
+    }
+}
+
+extension ProductDetailsViewController: UICollectionViewDelegate {
+    
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension ProductDetailsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+}
+
