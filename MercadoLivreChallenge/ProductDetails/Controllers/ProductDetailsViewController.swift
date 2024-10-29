@@ -8,12 +8,12 @@
 import UIKit
 
 class ProductDetailsViewController: UIViewController {
-    private let viewModel: ProductDetailsViewModel
-    private let productDetailsView: ProductDetailsView
+    let viewModel: ProductDetailsViewModel
+    let productDetailsView: ProductDetailsView
 
-    init(productId: String) {
-        self.viewModel = ProductDetailsViewModel(productId: productId)
-        self.productDetailsView = ProductDetailsView(viewModel: self.viewModel)
+    init(productId: String, viewModel: ProductDetailsViewModel? = nil, productDetailsView: ProductDetailsView? = nil) {
+        self.viewModel = viewModel ?? ProductDetailsViewModel(productId: productId)
+        self.productDetailsView = productDetailsView ?? ProductDetailsView(viewModel: self.viewModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,7 +38,7 @@ class ProductDetailsViewController: UIViewController {
         ])
     }
     
-    private func loadProductDetails() {
+     func loadProductDetails() {
             viewModel.fetchProductDetails { [weak self] result in
                 switch result {
                 case .success():
@@ -55,5 +55,4 @@ class ProductDetailsViewController: UIViewController {
     private func updateProductDetailsView() {
         productDetailsView.configure()
       }
-    
 }

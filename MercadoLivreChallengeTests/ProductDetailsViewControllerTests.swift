@@ -6,30 +6,90 @@
 //
 
 import XCTest
+@testable import MercadoLivreChallenge
 
 final class ProductDetailsViewControllerTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var viewController: ProductDetailsViewController!
+    var mockViewModel: MockProductDetailsViewModel!
+    var mockProductDetailsView: MockProductDetailsView!
+    
+    override func setUp() {
+        super.setUp()
+        
+        mockViewModel = MockProductDetailsViewModel(productId: "123")
+        mockProductDetailsView = MockProductDetailsView(viewModel: mockViewModel)
+        
+        viewController = ProductDetailsViewController(
+            productId: "123",
+            viewModel: mockViewModel,
+            productDetailsView: mockProductDetailsView
+        )
+        
+        viewController.loadViewIfNeeded()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        viewController = nil
+        mockViewModel = nil
+        mockProductDetailsView = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testViewDidLoadSetsUpSubviews() {
+        XCTAssertTrue(viewController.view.subviews.contains(viewController.productDetailsView))
     }
+    
+    func testLoadProductDetailsCallsFetchProductDetails() {
+        viewController.loadProductDetails()
+        XCTAssertTrue(mockViewModel.fetchProductDetailsCalled)
+    }
+    
+    func testLoadProductDetailsSuccessUpdatesView() {
+        mockViewModel.shouldReturnSuccess = true
+        
+        let expectation = expectation(description: "configure() should be called after successful data fetch")
+        
+        mockProductDetailsView.configureCalled = false
+        mockProductDetailsView.configureCalledExpectation = expectation
+        
+        viewController.loadProductDetails()
+        
+        wait(for: [expectation], timeout: 5.0)
+        
+        XCTAssertTrue(mockProductDetailsView.configureCalled, "configure() não foi chamado em um caso de sucesso.")
+    }
+    
+    func testLoadProductDetailsFailureDoesNotUpdateView() {
+        mockViewModel.shouldReturnSuccess = false
+        viewController.loadProductDetails()
+        XCTAssertFalse(mockProductDetailsView.configureCalled)
+    }
+}
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+final class MockProductDetailsViewModel: ProductDetailsViewModel {
+    var fetchProductDetailsCalled = false
+    var shouldReturnSuccess = true
+    
+    override func fetchProductDetails(completion: @escaping (Result<Void, Error>) -> Void) {
+        fetchProductDetailsCalled = true
+        if shouldReturnSuccess {
+            completion(.success(()))
+        } else {
+            completion(.failure(NSError(domain: "TestError", code: -1, userInfo: nil)))
         }
     }
+}
 
+final class MockProductDetailsView: ProductDetailsView {
+    var configureCalled = false
+    var configureCalledExpectation: XCTestExpectation?
+    
+    override func configure() {
+        if !configureCalled {
+            configureCalled = true
+            configureCalledExpectation?.fulfill()
+        }
+    }
 }

@@ -93,7 +93,6 @@ class ProductDetailsView: UIView {
         super.init(frame: .zero)
         setupView()
         setupConstraints()
-        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -155,18 +154,23 @@ class ProductDetailsView: UIView {
     }
     
     func configure() {
-        productNameLabel.text = viewModel.productTitle
-        ratingLabel.text = viewModel.productRate == "Sem avaliações" ? "Sem avaliações" : "\(viewModel.productRate)"
-        descriptionLabel.text = viewModel.productDescription
-        priceLabel.text = viewModel.productPrice
-        warrantyLabel.text = viewModel.warrantyText ?? "Sem garantia"
-        acceptsMercadoPagoView.isHidden = !viewModel.acceptsMercadoPago
-        loadImage()
+        DispatchQueue.main.async {
+            self.productNameLabel.text = self.viewModel.productTitle
+            self.ratingLabel.text = self.viewModel.productRate == "Sem avaliações" ? "Sem avaliações" : "\(self.viewModel.productRate)"
+            self.descriptionLabel.text = self.viewModel.productDescription
+            self.priceLabel.text = self.viewModel.productPrice
+            self.warrantyLabel.text = self.viewModel.warrantyText ?? "Sem garantia"
+            self.acceptsMercadoPagoView.isHidden = !self.viewModel.acceptsMercadoPago
+            self.loadImage()
+        }
     }
     
     private func loadImage() {
-        if let url = viewModel.productImageURL {
-            productImageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
+        DispatchQueue.main.async {
+            if let url = self.viewModel.productImageURL {
+                self.productImageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
+                
+            }
         }
     }
 }
