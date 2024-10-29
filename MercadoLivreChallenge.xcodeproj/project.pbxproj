@@ -27,10 +27,8 @@
 		573F58DF2CD0468200DF01E3 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58DE2CD0468200DF01E3 /* MockURLSession.swift */; };
 		573F58E12CD0548C00DF01E3 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58E02CD0548C00DF01E3 /* HomeViewModelTests.swift */; };
 		573F58E32CD054DE00DF01E3 /* MockNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58E22CD054DE00DF01E3 /* MockNetworkingManager.swift */; };
-		573F58E42CD0563900DF01E3 /* MockNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58E22CD054DE00DF01E3 /* MockNetworkingManager.swift */; };
 		573F58E52CD0575E00DF01E3 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD0B2CC82D48004929BC /* NetworkingManager.swift */; };
 		573F58E62CD057A400DF01E3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */; };
-		573F58E82CD057E700DF01E3 /* NetworkingManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58E72CD057E700DF01E3 /* NetworkingManagerProtocol.swift */; };
 		573F58E92CD057FF00DF01E3 /* NetworkingManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58E72CD057E700DF01E3 /* NetworkingManagerProtocol.swift */; };
 		573F58EA2CD0586400DF01E3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB99652CC83B8000F27D25 /* Category.swift */; };
 		573F58EC2CD0593400DF01E3 /* CategoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58EB2CD0593400DF01E3 /* CategoryDetail.swift */; };
@@ -38,6 +36,18 @@
 		573F58F02CD05A5B00DF01E3 /* CategoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58EB2CD0593400DF01E3 /* CategoryDetail.swift */; };
 		573F58F12CD05A5F00DF01E3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58EE2CD0595A00DF01E3 /* Settings.swift */; };
 		573F58F22CD05A8900DF01E3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58CC2CCE376800DF01E3 /* Observable.swift */; };
+		573F58F52CD05C6400DF01E3 /* ListProductsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58F32CD05C6400DF01E3 /* ListProductsViewModelTests.swift */; };
+		573F58F72CD0615400DF01E3 /* NetworkingManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58E72CD057E700DF01E3 /* NetworkingManagerProtocol.swift */; };
+		573F58F82CD061FF00DF01E3 /* ListProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58A82CCDBCC100DF01E3 /* ListProductsViewModel.swift */; };
+		573F58F92CD0625400DF01E3 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58AE2CCE10D500DF01E3 /* SearchResponse.swift */; };
+		573F58FA2CD0625700DF01E3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BD0D2CC82E0D004929BC /* Product.swift */; };
+		573F58FB2CD062B300DF01E3 /* ImageProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58CE2CD0049F00DF01E3 /* ImageProduct.swift */; };
+		573F58FC2CD062B500DF01E3 /* ReviewRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58D22CD022CA00DF01E3 /* ReviewRate.swift */; };
+		573F58FD2CD062B700DF01E3 /* Installments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58D42CD0376700DF01E3 /* Installments.swift */; };
+		573F58FE2CD062BA00DF01E3 /* Shipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58D62CD0378000DF01E3 /* Shipping.swift */; };
+		573F58FF2CD062BC00DF01E3 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58D82CD037A400DF01E3 /* Attribute.swift */; };
+		573F59002CD062BE00DF01E3 /* SalePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F58DA2CD0381A00DF01E3 /* SalePrice.swift */; };
+		573F59032CD0647500DF01E3 /* MainModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F59012CD0647500DF01E3 /* MainModelTests.swift */; };
 		5764DAE02CCC58BA00399D9D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */; };
 		57C5BCD32CC82A11004929BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCD22CC82A11004929BC /* AppDelegate.swift */; };
 		57C5BCD52CC82A11004929BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5BCD42CC82A11004929BC /* SceneDelegate.swift */; };
@@ -106,6 +116,8 @@
 		573F58E72CD057E700DF01E3 /* NetworkingManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerProtocol.swift; sourceTree = "<group>"; };
 		573F58EB2CD0593400DF01E3 /* CategoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetail.swift; sourceTree = "<group>"; };
 		573F58EE2CD0595A00DF01E3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		573F58F32CD05C6400DF01E3 /* ListProductsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductsViewModelTests.swift; sourceTree = "<group>"; };
+		573F59012CD0647500DF01E3 /* MainModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModelTests.swift; sourceTree = "<group>"; };
 		5764DADF2CCC58BA00399D9D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		57C5BCCF2CC82A11004929BC /* MercadoLivreChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoLivreChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C5BCD22CC82A11004929BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -480,6 +492,8 @@
 				573F58DE2CD0468200DF01E3 /* MockURLSession.swift */,
 				573F58E02CD0548C00DF01E3 /* HomeViewModelTests.swift */,
 				573F58E22CD054DE00DF01E3 /* MockNetworkingManager.swift */,
+				573F58F32CD05C6400DF01E3 /* ListProductsViewModelTests.swift */,
+				573F59012CD0647500DF01E3 /* MainModelTests.swift */,
 			);
 			path = MercadoLivreChallengeTests;
 			sourceTree = "<group>";
@@ -744,7 +758,6 @@
 				573F58A52CCDADFD00DF01E3 /* UIColor+Hex.swift in Sources */,
 				57C5BCD32CC82A11004929BC /* AppDelegate.swift in Sources */,
 				573F58AB2CCE0A2800DF01E3 /* ProductCollectionViewCell.swift in Sources */,
-				573F58E42CD0563900DF01E3 /* MockNetworkingManager.swift in Sources */,
 				573F58EF2CD0595A00DF01E3 /* Settings.swift in Sources */,
 				57CB996C2CC83D3600F27D25 /* ListProductsViewController.swift in Sources */,
 				57CB99662CC83B8000F27D25 /* Category.swift in Sources */,
@@ -753,6 +766,7 @@
 				57CB996A2CC83D0F00F27D25 /* ListProductsView.swift in Sources */,
 				57C5BD152CC83469004929BC /* HomeViewController.swift in Sources */,
 				573F58EC2CD0593400DF01E3 /* CategoryDetail.swift in Sources */,
+				573F58F72CD0615400DF01E3 /* NetworkingManagerProtocol.swift in Sources */,
 				573F589F2CCC819600DF01E3 /* CategoryCollectionViewCell.swift in Sources */,
 				573F58A92CCDBCC100DF01E3 /* ListProductsViewModel.swift in Sources */,
 				573F58D52CD0376700DF01E3 /* Installments.swift in Sources */,
@@ -760,7 +774,6 @@
 				57CB99722CC8407700F27D25 /* SettingsViewController.swift in Sources */,
 				57CB99682CC83CFE00F27D25 /* HomeView.swift in Sources */,
 				57C5BD102CC8320B004929BC /* ProductDetailsView.swift in Sources */,
-				573F58E82CD057E700DF01E3 /* NetworkingManagerProtocol.swift in Sources */,
 				57C5BD192CC83626004929BC /* ProductDetailsViewModel.swift in Sources */,
 				57C5BCD52CC82A11004929BC /* SceneDelegate.swift in Sources */,
 				573F58CF2CD0049F00DF01E3 /* ImageProduct.swift in Sources */,
@@ -783,16 +796,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573F59002CD062BE00DF01E3 /* SalePrice.swift in Sources */,
 				573F58F02CD05A5B00DF01E3 /* CategoryDetail.swift in Sources */,
 				573F58DF2CD0468200DF01E3 /* MockURLSession.swift in Sources */,
 				57C5BCED2CC82A14004929BC /* MercadoLivreChallengeTests.swift in Sources */,
 				573F58E62CD057A400DF01E3 /* HomeViewModel.swift in Sources */,
 				573F58F22CD05A8900DF01E3 /* Observable.swift in Sources */,
+				573F59032CD0647500DF01E3 /* MainModelTests.swift in Sources */,
+				573F58FC2CD062B500DF01E3 /* ReviewRate.swift in Sources */,
+				573F58FD2CD062B700DF01E3 /* Installments.swift in Sources */,
+				573F58FE2CD062BA00DF01E3 /* Shipping.swift in Sources */,
+				573F58FB2CD062B300DF01E3 /* ImageProduct.swift in Sources */,
+				573F58F52CD05C6400DF01E3 /* ListProductsViewModelTests.swift in Sources */,
+				573F58F82CD061FF00DF01E3 /* ListProductsViewModel.swift in Sources */,
 				573F58E32CD054DE00DF01E3 /* MockNetworkingManager.swift in Sources */,
 				573F58E52CD0575E00DF01E3 /* NetworkingManager.swift in Sources */,
+				573F58FA2CD0625700DF01E3 /* Product.swift in Sources */,
 				573F58EA2CD0586400DF01E3 /* Category.swift in Sources */,
 				573F58DD2CD040CC00DF01E3 /* NetworkingManagerTests.swift in Sources */,
+				573F58F92CD0625400DF01E3 /* SearchResponse.swift in Sources */,
 				573F58E12CD0548C00DF01E3 /* HomeViewModelTests.swift in Sources */,
+				573F58FF2CD062BC00DF01E3 /* Attribute.swift in Sources */,
 				573F58F12CD05A5F00DF01E3 /* Settings.swift in Sources */,
 				573F58E92CD057FF00DF01E3 /* NetworkingManagerProtocol.swift in Sources */,
 			);
