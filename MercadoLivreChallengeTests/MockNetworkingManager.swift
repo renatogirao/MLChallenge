@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MockNetworkingManager: NetworkingManagerProtocol {
+public class MockNetworkingManager: NetworkingManagerProtocol {
     
     var mockData: Decodable?
     var mockError: APIError?

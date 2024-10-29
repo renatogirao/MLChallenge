@@ -19,7 +19,7 @@ final class HomeViewModelTests: XCTestCase {
         pathFromRoot: [Category(id: "MLB123", name: "Eletrônicos")],
         childrenCategories: [],
         attributeTypes: "attributes",
-        settings: nil,  // Ajuste conforme a definição do seu Settings
+        settings: nil,
         channelsSettings: [],
         metaCategId: nil,
         attributable: true,

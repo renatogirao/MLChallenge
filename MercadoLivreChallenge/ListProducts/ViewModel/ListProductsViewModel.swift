@@ -12,8 +12,12 @@ class ListProductsViewModel {
     var errorOccurred: ((Error) -> Void)?
     
     var products: [Product] = []
-    private let networkingManager = NetworkingManager()
+    private let networkingManager: NetworkingManagerProtocol
     private var loadingTask: DispatchWorkItem?
+    
+    public init(networkingManager: NetworkingManagerProtocol = NetworkingManager()) {
+          self.networkingManager = networkingManager
+      }
 
     var numberOfProducts: Int {
         return products.count
